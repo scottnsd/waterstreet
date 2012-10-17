@@ -26,55 +26,17 @@ if ( ! function_exists( 'waterstreet_setup' ) ):
  */
 function waterstreet_setup() {
 
-	/**
-	 * Custom template tags for this theme.
-	 */
+	/* Custom template tags for this theme. */
 	require( get_template_directory() . '/inc/template-tags.php' );
 
-	/**
-	 * Custom functions that act independently of the theme templates
-	 */
-	//require( get_template_directory() . '/inc/tweaks.php' );
-
-	/**
-	 * Custom Theme Options
-	 */
-	//require( get_template_directory() . '/inc/theme-options/theme-options.php' );
-
-	/**
-	 * WordPress.com-specific functions and definitions
-	 */
-	//require( get_template_directory() . '/inc/wpcom.php' );
-
-	/**
-	 * Make theme available for translation
-	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on _s, use a find and replace
-	 * to change 'waterstreet' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'waterstreet', get_template_directory() . '/languages' );
-
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
 	add_theme_support( 'automatic-feed-links' );
-
-	/**
-	 * Enable support for Post Thumbnails
-	 */
+	 
 	add_theme_support( 'post-thumbnails' );
-
-	/**
-	 * This theme uses wp_nav_menu() in one location.
-	 */
+ 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'waterstreet' ),
 	) );
 
-	/**
-	 * Add support for the Aside Post Formats
-	 */
-	add_theme_support( 'post-formats', array( 'aside', ) );
 }
 endif; // waterstreet_setup
 add_action( 'after_setup_theme', 'waterstreet_setup' );
@@ -130,9 +92,4 @@ function waterstreet_park_show_template() {
 }
 add_action('wp_footer', 'waterstreet_park_show_template');
 
-
-
-/**
- * Implement the Custom Header feature
- */
-//require( get_template_directory() . '/inc/custom-header.php' );
+ 
