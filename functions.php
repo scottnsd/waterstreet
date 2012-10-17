@@ -1,20 +1,20 @@
 <?php
 /**
- * _s functions and definitions
+ * waterstreet functions and definitions
  *
- * @package _s
- * @since _s 1.0
+ * @package waterstreet
+ * @since waterstreet 1.0
  */
 
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
- * @since _s 1.0
+ * @since waterstreet 1.0
  */
 if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
 
-if ( ! function_exists( '_s_setup' ) ):
+if ( ! function_exists( 'waterstreet_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -22,9 +22,9 @@ if ( ! function_exists( '_s_setup' ) ):
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  *
- * @since _s 1.0
+ * @since waterstreet 1.0
  */
-function _s_setup() {
+function waterstreet_setup() {
 
 	/**
 	 * Custom template tags for this theme.
@@ -50,9 +50,9 @@ function _s_setup() {
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
 	 * If you're building a theme based on _s, use a find and replace
-	 * to change '_s' to the name of your theme in all the template files
+	 * to change 'waterstreet' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'waterstreet', get_template_directory() . '/languages' );
 
 	/**
 	 * Add default posts and comments RSS feed links to head
@@ -68,7 +68,7 @@ function _s_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', '_s' ),
+		'primary' => __( 'Primary Menu', 'waterstreet' ),
 	) );
 
 	/**
@@ -76,17 +76,17 @@ function _s_setup() {
 	 */
 	add_theme_support( 'post-formats', array( 'aside', ) );
 }
-endif; // _s_setup
-add_action( 'after_setup_theme', '_s_setup' );
+endif; // waterstreet_setup
+add_action( 'after_setup_theme', 'waterstreet_setup' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  *
- * @since _s 1.0
+ * @since waterstreet 1.0
  */
-function _s_widgets_init() {
+function waterstreet_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Sidebar', '_s' ),
+		'name' => __( 'Sidebar', 'waterstreet' ),
 		'id' => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
@@ -94,12 +94,12 @@ function _s_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 }
-add_action( 'widgets_init', '_s_widgets_init' );
+add_action( 'widgets_init', 'waterstreet_widgets_init' );
 
 /**
  * Enqueue scripts and styles
  */
-function _s_scripts() {
+function waterstreet_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
@@ -112,7 +112,7 @@ function _s_scripts() {
 		wp_enqueue_script( 'keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 }
-add_action( 'wp_enqueue_scripts', '_s_scripts' );
+add_action( 'wp_enqueue_scripts', 'waterstreet_scripts' );
 
 
 
@@ -123,12 +123,12 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  * @since 0.1
  */
 
-function _s_park_show_template() {
+function waterstreet_park_show_template() {
 	global $template;
 	echo '<strong>Template file:</strong>';
 	 print_r($template);
 }
-add_action('wp_footer', '_s_park_show_template');
+add_action('wp_footer', 'waterstreet_park_show_template');
 
 
 
