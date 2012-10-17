@@ -85,11 +85,52 @@ add_action( 'wp_enqueue_scripts', 'waterstreet_scripts' );
  * @since 0.1
  */
 
-function waterstreet_park_show_template() {
+function waterstreet_show_template() {
 	global $template;
 	echo '<strong>Template file:</strong>';
 	 print_r($template);
 }
-add_action('wp_footer', 'waterstreet_park_show_template');
+add_action('wp_footer', 'waterstreet_show_template');
+
+
+ /**
+ * Include the page slug in the body class attribute.
+ *
+ * @since 0.1
+ *
+ */
+
+function waterstreet_better_body_classes( $classes ){
+    global $post;
+    if ( isset( $post ) ) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+    return $classes;
+}
+	add_filter('body_class', 'waterstreet_better_body_classes');
+
+
+
+/**
+ * Add slug to menu li classes
+ *
+ * @since 0.1
+ */
+
+function waterstreet_add_slug_class_to_menu_item($output){
+	$ps = get_option('permalink_structure');
+	if(!empty($ps)){
+		$idstr = preg_match_all('/<li id="menu-item-(\d+)/', $output, $matches);
+		foreach($matches[1] as $mid){
+			$id = get_post_meta($mid, '_menu_item_object_id', true);
+			$slug = basename(get_permalink($id));
+			$output = preg_replace('/menu-item-'.$mid.'">/', 'menu-item-'.$mid.' menu-item-'.$slug.'">', $output, 1);
+		}
+	}
+	return $output;
+}
+add_filter('wp_nav_menu', 'waterstreet_add_slug_class_to_menu_item');
+
+
 
  
