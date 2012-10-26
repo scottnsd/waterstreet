@@ -13,6 +13,10 @@ Tags:
  @import url('inc/css/normalize.css');
  @import url('inc/css/elements.less');
 
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Font Awesome icon font */
+@import "inc/css/font-awesome.css";
 
 /* =Global
 ----------------------------------------------- */
@@ -72,6 +76,17 @@ a:active {
 }
 
 
+/* Font awesome */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../ing/fonts/fontawesome-webfont.eot');
+  src: url('../ing/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../ing/fonts/fontawesome-webfont.woff') format('woff'),
+     url('../ing/fonts/fontawesome-webfont.ttf') format('truetype'),
+     url('../ing/fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* =Structure
 ----------------------------------------------- */
