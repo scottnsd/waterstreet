@@ -553,6 +553,7 @@ textarea {
 
 /* =Footer
 ----------------------------------------------- */
+
 footer#colophon {
 	background: #444;
 	color: white;
@@ -574,3 +575,53 @@ footer#colophon {
 .group {
     zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
+
+
+/* =Media Queries 
+----------------------------------------------- */
+/******************************************************************
+Graciously borrowed from Eddie Machado's Bones
+http://themble.com/bones/
+******************************************************************/
+ 
+
+/*
+LARGER MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's
+larger than an iPhone but smaller than a tablet. 
+*/
+@media only screen and (min-width: 481px) {
+	body { background: #eee; }
+
+} // end of media query
+
+
+
+/*
+TABLET & SMALLER LAPTOPS
+This is the average viewing window. So Desktops, Laptops, and
+in general anyone not viewing on a mobile device. 
+*/
+@media only screen and (min-width: 768px) {
+ body { background: #ddd; }
+} // end of media query
+
+   
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	body { background: #ccc; }
+	 
+
+} // end of media query
+
+  
+
