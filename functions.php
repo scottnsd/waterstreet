@@ -84,14 +84,14 @@ add_action( 'wp_enqueue_scripts', 'waterstreet_scripts' );
  *
  * @since 0.1
  */
-
 function waterstreet_show_template() {
-	global $template;
-	echo '<strong>Template file:</strong>';
-	 print_r($template);
+	if ( is_super_admin() ){	
+		global $template;
+		echo '<strong>Template file:</strong>';
+		print_r($template);
+	}
 }
 add_action('wp_footer', 'waterstreet_show_template');
-
 
  /**
  * Include the page slug in the body class attribute.
