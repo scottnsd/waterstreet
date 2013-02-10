@@ -66,6 +66,9 @@ function waterstreet_scripts() {
 
 	wp_enqueue_script( 'small-menu', get_template_directory_uri() . '/js/small-menu.js', array( 'jquery' ), '20120206', true );
 
+	wp_register_script( 'scripts', get_template_directory_uri() .'/js/scripts.js');
+    wp_enqueue_script( 'scripts' );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
