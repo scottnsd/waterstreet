@@ -24,6 +24,9 @@ sidebars, comments, ect.
 	- adding custom fields to user profiles
 */
 require_once( 'library/bones.php' ); // if you remove this, bones will break
+
+
+
 /*
 2. library/custom-post-type.php
 	- an example custom post type
@@ -31,19 +34,13 @@ require_once( 'library/bones.php' ); // if you remove this, bones will break
 	- example custom taxonomy (like tags)
 */
 require_once( 'library/custom-post-type.php' ); // you can disable this if you like
+ 
+
 /*
-3. library/admin.php
-	- removing some default WordPress dashboard widgets
-	- an example custom dashboard widget
-	- adding custom login css
-	- changing text in footer of admin
+4. library/template-tags.php
+	- Sane post nav, comments and paging — all from _s.
 */
-// require_once( 'library/admin.php' ); // this comes turned off by default
-/*
-4. library/translation/translation.php
-	- adding support for other languages
-*/
-// require_once( 'library/translation/translation.php' ); // this comes turned off by default
+require_once( 'library/template-tags.php' );  
 
 
 

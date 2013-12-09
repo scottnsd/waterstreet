@@ -23,24 +23,30 @@ function bones_ahoy() {
 
     // launching operation cleanup
     add_action( 'init', 'bones_head_cleanup' );
+    
     // remove WP version from RSS
     add_filter( 'the_generator', 'bones_rss_version' );
+    
     // remove pesky injected css for recent comments widget
     add_filter( 'wp_head', 'bones_remove_wp_widget_recent_comments_style', 1 );
+    
     // clean up comment styles in the head
     add_action( 'wp_head', 'bones_remove_recent_comments_style', 1 );
+    
     // clean up gallery output in wp
     add_filter( 'gallery_style', 'bones_gallery_style' );
 
+
     // enqueue base scripts and styles
     add_action( 'wp_enqueue_scripts', 'bones_scripts_and_styles', 999 );
+    
     // ie conditional wrapper
-
     // launching this stuff after theme setup
     bones_theme_support();
 
     // adding sidebars to Wordpress (these are created in functions.php)
     add_action( 'widgets_init', 'bones_register_sidebars' );
+    
     // adding the bones search form (created in functions.php)
     add_filter( 'get_search_form', 'bones_wpsearch' );
 
@@ -52,19 +58,11 @@ function bones_ahoy() {
 } /* end bones ahoy */
 
 /*********************
-WP_HEAD GOODNESS
-The default wordpress head is
-a mess. Let's clean it up by
-removing all the junk we don't
-need.
+WP_HEAD CLEANUP
 *********************/
 
 function bones_head_cleanup() {
-	// category feeds
-	// remove_action( 'wp_head', 'feed_links_extra', 3 );
-	// post and comment feeds
-	// remove_action( 'wp_head', 'feed_links', 2 );
-	// EditURI link
+	
 	remove_action( 'wp_head', 'rsd_link' );
 	// windows live writer
 	remove_action( 'wp_head', 'wlwmanifest_link' );
@@ -76,8 +74,7 @@ function bones_head_cleanup() {
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 	// links for adjacent posts
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-	// WP version
-	remove_action( 'wp_head', 'wp_generator' );
+
 	// remove WP version from css
 	add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
@@ -120,19 +117,18 @@ function bones_gallery_style($css) {
 SCRIPTS & ENQUEUEING
 *********************/
 
-// loading modernizr and jquery, and reply script
+// load jquery and reply script
 function bones_scripts_and_styles() {
   global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
   if (!is_admin()) {
 
-    // modernizr (without media query polyfill)
-    wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-
-    // register main stylesheet
+     // register main stylesheet
     wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
+    wp_enqueue_style( 'bones-stylesheet' );
 
     // ie-only style sheet
     wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+    wp_enqueue_style( 'bones-ie-only' );
 
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -141,21 +137,11 @@ function bones_scripts_and_styles() {
 
     //adding scripts file in the footer
     wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
-
-    // enqueue styles and scripts
-    wp_enqueue_script( 'bones-modernizr' );
-    wp_enqueue_style( 'bones-stylesheet' );
-    wp_enqueue_style( 'bones-ie-only' );
+    wp_enqueue_script( 'bones-js' );
 
     $wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-    /*
-    I recommend using a plugin to call jQuery
-    using the google cdn. That way it stays cached
-    and your site will load faster.
-    */
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'bones-js' );
 
   }
 }
@@ -275,36 +261,7 @@ function bones_footer_links_fallback() {
 	/* you can put a default here if you like */
 }
 
-/*********************
-RELATED POSTS FUNCTION
-*********************/
-
-// Related Posts Function (call using bones_related_posts(); )
-function bones_related_posts() {
-	echo '<ul id="bones-related-posts">';
-	global $post;
-	$tags = wp_get_post_tags( $post->ID );
-	if($tags) {
-		foreach( $tags as $tag ) { 
-			$tag_arr .= $tag->slug . ',';
-		}
-        $args = array(
-        	'tag' => $tag_arr,
-        	'numberposts' => 5, /* you can change this to show more */
-        	'post__not_in' => array($post->ID)
-     	);
-        $related_posts = get_posts( $args );
-        if($related_posts) {
-        	foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
-	           	<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-	        <?php endforeach; }
-	    else { ?>
-            <?php echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'bonestheme' ) . '</li>'; ?>
-		<?php }
-	}
-	wp_reset_query();
-	echo '</ul>';
-} /* end bones related posts function */
+ 
 
 /*********************
 PAGE NAVI
@@ -368,4 +325,29 @@ function bones_get_the_author_posts_link() {
 	return $link;
 }
 
-?>
+
+/***********************
+DASHBOARD WIDGET REMOVAL
+***********************/
+
+// disable default dashboard widgets
+function waterstreet_disable_default_dashboard_widgets() {
+	// remove_meta_box( 'dashboard_right_now', 'dashboard', 'core' );    // Right Now Widget
+	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core' ); // Comments Widget
+	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );  // Incoming Links Widget
+	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );         // Plugins Widget
+
+	// remove_meta_box('dashboard_quick_press', 'dashboard', 'core' );  // Quick Press Widget
+	remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );   // Recent Drafts Widget
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         //
+	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       //
+
+	// removing plugin dashboard boxes
+	remove_meta_box( 'yoast_db_widget', 'dashboard', 'normal' );         // Yoast's SEO Plugin Widget
+
+}
+
+// removing the dashboard widgets
+add_action( 'admin_menu', 'waterstreet_disable_default_dashboard_widgets' );
+ 
+ 
