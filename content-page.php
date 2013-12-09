@@ -6,7 +6,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'group' ); ?> role="article">
 
 	<header class="article-header">
 
@@ -17,7 +17,7 @@
 
 	</header> <?php // end article header ?>
 
-	<section class="entry-content clearfix">
+	<section class="entry-content group">
 		<?php the_content(); ?>
 	</section> <?php // end article section ?>
 

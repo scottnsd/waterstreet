@@ -2,59 +2,31 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap clearfix">
+	<div id="inner-content" class="wrap group">
 
-		<div id="main" class="col8 first clearfix" role="main">
+		<div id="main" class="col8 first group" role="main">
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			
+			<?php while ( have_posts() ) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+			<?php get_template_part( 'content', 'page' ); ?>
 
-				<header class="article-header">
+			<?php
+ 			if ( comments_open() || '0' != get_comments_number() ) :
+				comments_template();
+			endif;
+			?>
 
-					<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-					<p class="byline vcard"><?php
-					printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>.', 'bonestheme' ), get_the_time( 'Y-m-j' ), get_the_time( __( 'F jS, Y', 'bonestheme' ) ), bones_get_the_author_posts_link());
-					?></p>
+		<?php endwhile; // end of the loop. ?>
 
 
-				</header> <?php // end article header ?>
+	</div> <!-- #main -->
 
-				<section class="entry-content clearfix" itemprop="articleBody">
-					<?php the_content(); ?>
-				</section> <?php // end article section ?>
+	<?php get_sidebar(); ?>
 
-				<footer class="article-footer">
-					<?php the_tags( '<span class="tags">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '' ); ?>
+</div> <!-- #inner-content -->  
 
-				</footer> <?php // end article footer ?>
+</div> <!-- #content -->  
 
-				<?php comments_template(); ?>
-
-			</article> <?php // end article ?>
-
-		<?php endwhile; else : ?>
-
-		<article id="post-not-found" class="hentry clearfix">
-			<header class="article-header">
-				<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-			</header>
-			<section class="entry-content">
-				<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-			</section>
-			<footer class="article-footer">
-				<p><?php _e( 'This is the error message in the page.php template.', 'bonestheme' ); ?></p>
-			</footer>
-		</article>
-
-	<?php endif; ?>
-
-</div> <?php // end #main ?>
-
-<?php get_sidebar(); ?>
-
-</div> <?php // end #inner-content ?>
-
-</div> <?php // end #content ?>
 
 <?php get_footer(); ?>

@@ -2,11 +2,11 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap clearfix">
+	<div id="inner-content" class="wrap group">
 
-		<div id="main" class="col8 first clearfix" role="main">
+		<div id="main" class="col8 first group" role="main">
 
-			<article id="post-not-found" class="hentry clearfix">
+			<article id="post-not-found" class="hentry group">
 
 				<header class="article-header">
 

@@ -18,16 +18,18 @@ You may be thinking…
 
 WHOA, WHOA, WHOA…WHAT HAPPENED HERE?
 
-But before you freak out, let me take a few minutes to explain.
+But before you freak out, let me take a minute to explain how
+to get this working.
 
-Waterstreet uses LESS by default. If you prefer
-using regular CSS, then feel free to modify this theme how you like
-and keep a copy as your own personal starting point.
 
-LESS might take a few minutes to wrap your head around, but it will all
-be worth it. Need a quick intro? Here are a few quick reads:
+Your two main files are:
 
-http://cognition.happycog.com/article/preprocess-this
-http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
- 
- 
+1. style.less
+	— ties everything together. 
+	— includes all of the _partial files, at the appropriate
+	time, via media queries.
+
+2. _base.less
+	— this is the main part you need to get your head around
+	— this theme is mobile first. Hence, everything starts with _base and builds from there. 
+	— you essentially override or add to the base styles as you go up in viewport

@@ -2,15 +2,15 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap clearfix">
+	<div id="inner-content" class="wrap group">
 
-		<div id="main" class="col8 first clearfix" role="main">
+		<div id="main" class="col8 first group" role="main">
 
 			<h1 class="archive-title h2"><?php post_type_archive_title(); ?></h1>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?> role="article">
+			<article id="post-<?php the_ID(); ?>" <?php post_class( 'group' ); ?> role="article">
 
 				<header class="article-header">
 
@@ -21,7 +21,7 @@
 
 				</header> <?php // end article header ?>
 
-				<section class="entry-content clearfix">
+				<section class="entry-content group">
 
 					<?php the_excerpt(); ?>
 
@@ -39,7 +39,7 @@
 		<?php bones_page_navi(); ?>
 		<?php } else { ?>
 		<nav class="wp-prev-next">
-			<ul class="clearfix">
+			<ul class="group">
 				<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
 				<li class="next-link"><?php previous_posts_link( __( 'Newer Entries &raquo;', 'bonestheme' )) ?></li>
 			</ul>
@@ -48,7 +48,7 @@
 
 	<?php else : ?>
 
-	<article id="post-not-found" class="hentry clearfix">
+	<article id="post-not-found" class="hentry group">
 		<header class="article-header">
 			<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
 		</header>

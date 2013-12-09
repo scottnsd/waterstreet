@@ -138,7 +138,7 @@ function bones_register_sidebars() {
 function bones_comments( $comment, $args, $depth ) {
    $GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
-		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
+		<article id="comment-<?php comment_ID(); ?>" class="group">
 			<header class="comment-author vcard">
 				<?php
 				/*
@@ -162,7 +162,7 @@ function bones_comments( $comment, $args, $depth ) {
 					<p><?php _e( 'Your comment is awaiting moderation.', 'bonestheme' ) ?></p>
 				</div>
 			<?php endif; ?>
-			<section class="comment_content clearfix">
+			<section class="comment_content group">
 				<?php comment_text() ?>
 			</section>
 			<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>

@@ -2,9 +2,9 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap clearfix">
+	<div id="inner-content" class="wrap group">
 
-		<div id="main" class="col8 clearfix" role="main">
+		<div id="main" class="col8 group" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

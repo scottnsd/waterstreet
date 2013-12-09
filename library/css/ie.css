@@ -35,17 +35,17 @@ remember less is more.
 
 ******************************************************************/
 /*********************
-CLEARFIXIN'
+groupIN'
 *********************/
-.clearfix {
+.group {
   zoom: 1;
 }
-.clearfix:before,
-.clearfix:after {
+.group:before,
+.group:after {
   content: "";
   display: table;
 }
-.clearfix:after {
+.group:after {
   clear: both;
 }
 /*********************
@@ -74,24 +74,6 @@ http://sachagreif.com/sass-color-variables/
 /*********************
 TYPOGRAPHY
 *********************/
-/* 	To embed your own fonts, use this syntax
-	and place your fonts inside the 
-	library/fonts folder. For more information
-	on embedding fonts, go to:
-	http://www.fontsquirrel.com/
-	Be sure to remove the comment brackets.
-*/
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('../fonts/font-name.eot');
-    	src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('../fonts/font-name.woff') format('woff'),
-             url('../fonts/font-name.ttf') format('truetype'),
-             url('../fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
-	}
-*/
 /* =Helpers
 ----------------------------------------------- */
 .center {
@@ -205,6 +187,32 @@ Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
 /* .css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+COLUMNS
+*********************/
+.two-col {
+  -moz-column-width: 350px;
+  -moz-column-count: 0;
+  -moz-column-gap: 50px;
+  -moz-column-rule-color: #eeeeee;
+  -moz-column-rule-style: solid;
+  -moz-column-rule-width: 1px;
+  -webkit-column-width: 350px;
+  -webkit-column-count: 0;
+  -webkit-column-gap: 50px;
+  -webkit-column-rule-color: #eeeeee;
+  -webkit-column-rule-style: solid;
+  -webkit-column-rule-width: 1px;
+  column-width: 350px;
+  column-count: 0;
+  column-gap: 50px;
+  column-rule-color: #eeeeee;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+}
+.two-col p {
+  margin-top: 0;
+}
 /*********************
 BOX SHADOW
 *********************/
@@ -321,7 +329,7 @@ upon your base.less styles.
 /*********************
 NAVIGATION STYLES
 *********************/
-/* .menu is clearfixed inside mixins.scss */
+/* .menu is grouped inside mixins.scss */
 .menu {
   /* end .menu ul */
 

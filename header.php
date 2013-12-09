@@ -45,7 +45,7 @@
 
 				<header class="header" role="banner">
 
-					<div id="inner-header" class="wrap clearfix">
+					<div id="inner-header" class="wrap group">
 
 						<?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
 						<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>

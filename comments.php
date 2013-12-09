@@ -22,7 +22,7 @@ The comments page for Bones
 	<h3 id="comments" class="h2"><?php comments_number( __( '<span>No</span> Responses', 'bonestheme' ), __( '<span>One</span> Response', 'bonestheme' ), _n( '<span>%</span> Response', '<span>%</span> Responses', get_comments_number(), 'bonestheme' ) );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	<nav id="comment-nav">
-		<ul class="clearfix">
+		<ul class="group">
 				<li><?php previous_comments_link() ?></li>
 				<li><?php next_comments_link() ?></li>
 		</ul>
@@ -33,7 +33,7 @@ The comments page for Bones
 	</ol>
 
 	<nav id="comment-nav">
-		<ul class="clearfix">
+		<ul class="group">
 				<li><?php previous_comments_link() ?></li>
 				<li><?php next_comments_link() ?></li>
 		</ul>
@@ -78,7 +78,7 @@ The comments page for Bones
 
 	<?php else : ?>
 
-	<ul id="comment-form-elements" class="clearfix">
+	<ul id="comment-form-elements" class="group">
 
 		<li>
 			<label for="author"><?php _e( 'Name', 'bonestheme' ); ?> <?php if ($req) _e( '(required)'); ?></label>

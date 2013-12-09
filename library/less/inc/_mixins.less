@@ -17,12 +17,12 @@ remember less is more.
 ******************************************************************/
 
 /*********************
-CLEARFIXIN'
+groupIN'
 *********************/
 
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
-.clearfix {
-  zoom: 1;
+// Contain floats: nicolasgallagher.com/micro-group-hack/
+.group {
+	zoom: 1;
 	&:before, &:after { content: ""; display: table; }
 	&:after { clear: both; }
 }
@@ -80,31 +80,11 @@ TYPOGRAPHY
 @serif:              "Georgia", Cambria, Times New Roman, Times, serif; 
 
 
-/* 	To embed your own fonts, use this syntax
-	and place your fonts inside the 
-	library/fonts folder. For more information
-	on embedding fonts, go to:
-	http://www.fontsquirrel.com/
-	Be sure to remove the comment brackets.
-*/
-
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('../fonts/font-name.eot');
-    	src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('../fonts/font-name.woff') format('woff'),
-             url('../fonts/font-name.ttf') format('truetype'),
-             url('../fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
-	}
-*/
-
 
 /* =Helpers
 ----------------------------------------------- */
 .center { text-align: center; }
- 
+
 .lowercase { text-transform: lowercase;}
 .left{ float: left; margin-right: 50px; width: 45%; text-align: left; }
 .right { float: left; width: 45%; text-align: left;}
@@ -125,8 +105,8 @@ use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
 span.amp {
-  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif;
-  font-style: italic;
+	font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif;
+	font-style: italic;
 }
 
 /* text alignment */
@@ -143,25 +123,25 @@ span.amp {
 }
 
 .alert-help {
-  .alert();
+	.alert();
 	border-color: darken(@alert-yellow, 5%);
 	background: @alert-yellow;
 }
 
 .alert-info {
-  .alert();
+	.alert();
 	border-color: darken(@alert-blue, 5%);
 	background: @alert-blue;
 }
 
 .alert-error {
-  .alert();
+	.alert();
 	border-color: darken(@alert-red, 5%);
 	background: @alert-red;
 }
 
 .alert-success {
-  .alert();
+	.alert();
 	border-color: darken(@alert-green, 5%);
 	background: @alert-green;
 }
@@ -178,9 +158,9 @@ USAGE: .border-radius(4px);
 
 */
 .border-radius(@radius: 4px) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
 }
 
 
@@ -214,20 +194,51 @@ really slow down your CSS. Don't overdo it.
 }
 
 /*********************
+COLUMNS
+*********************/
+
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+
+.two-col{
+    .columns(350px, 0, 50px, #EEE, solid, 1px);
+    p { margin-top: 0;}
+}
+
+
+/*********************
 BOX SHADOW
 *********************/
 
 /* .boxShadow(0,0,4px,0,#444); */
 .boxShadow(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) when (isnumber(@x)) {
 	-webkit-box-shadow: @x @y @radius @spread @color;
-	   -moz-box-shadow: @x @y @radius @spread @color;
-			box-shadow: @x @y @radius @spread @color; 
+	-moz-box-shadow: @x @y @radius @spread @color;
+	box-shadow: @x @y @radius @spread @color; 
 }
 /* .boxShadow(none); */
 .boxShadow(@x: none) when (iskeyword(@x)) {
 	-webkit-box-shadow: @x;
-	   -moz-box-shadow: @x;
-			box-shadow: @x; 
+	-moz-box-shadow: @x;
+	box-shadow: @x; 
 }
 
 /*********************
@@ -254,9 +265,9 @@ BUTTONS
 
 	&:hover, &:focus {
 		color: @white;
-	  border: 1px solid darken(@bones-pink, 13%);
-	  border-top-color: darken(@bones-pink, 20%);
-	 	border-left-color: darken(@bones-pink, 20%);
+		border: 1px solid darken(@bones-pink, 13%);
+		border-top-color: darken(@bones-pink, 20%);
+		border-left-color: darken(@bones-pink, 20%);
 		.css-gradient(darken(@bones-pink, 5%),darken(@bones-pink, 10%));
 	}
 	
@@ -270,8 +281,8 @@ BUTTONS
 	text-shadow: 0 1px 1px darken(@bones-blue, 10%);
 	.css-gradient( @bones-blue, darken(@bones-blue, 5%) );
 	-webkit-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-       -moz-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-   	        box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
+	-moz-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
+	box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
 	&:hover, &:focus {
 		border-color: darken(@bones-blue, 15%);
 		.css-gradient( darken(@bones-blue, 4%), darken(@bones-blue, 10%) );

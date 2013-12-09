@@ -23,7 +23,8 @@ and will be used across all viewports.
 10. COMMENT STYLES
 11. COMMENT FORM STYLES
 12. SIDEBARS & ASIDES
-13. FOOTER STYLES
+13. IMAGES & MEDIA
+14. FOOTER STYLES
 
 ******************************************************************/
 
@@ -275,12 +276,13 @@ and more scalable.
 } /* end .nav */
 
 
-/*********************
+/**************************
 08. POSTS & CONTENT STYLES
-*********************/
+**************************/
 
 #content {
 	margin-top: 2.2em;
+	padding: 0 10px;
 
 	#inner-content {}
 }
@@ -377,6 +379,13 @@ and more scalable.
 			.alignleft, img.alignleft {}
 			.alignright, img.alignright {}
 			.aligncenter, img.aligncenter {}
+
+			img.size-auto, img.size-full, 
+			img.size-large, img.size-medium, 
+			.attachment img, .widget-area img{
+			    max-width: 100%;
+			    height: auto;
+			}
 
 			video, object {
 				max-width: 100%;
@@ -846,10 +855,13 @@ and more scalable.
 	}
 
 /*********************
-13. FOOTER STYLES
+14. IMAGES & MEDIA
 *********************/
+
+	
+
 /*********************
-13. FOOTER STYLES
+14. FOOTER STYLES
 *********************/
 
 .footer {

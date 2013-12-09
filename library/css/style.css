@@ -1,3 +1,4 @@
+@import "../fonts/FontAwesome/font-awesome.css";
 /******************************************************************
 Site Name:
 Author:
@@ -509,17 +510,17 @@ remember less is more.
 
 ******************************************************************/
 /*********************
-CLEARFIXIN'
+groupIN'
 *********************/
-.clearfix {
+.group {
   zoom: 1;
 }
-.clearfix:before,
-.clearfix:after {
+.group:before,
+.group:after {
   content: "";
   display: table;
 }
-.clearfix:after {
+.group:after {
   clear: both;
 }
 /*********************
@@ -548,24 +549,6 @@ http://sachagreif.com/sass-color-variables/
 /*********************
 TYPOGRAPHY
 *********************/
-/* 	To embed your own fonts, use this syntax
-	and place your fonts inside the 
-	library/fonts folder. For more information
-	on embedding fonts, go to:
-	http://www.fontsquirrel.com/
-	Be sure to remove the comment brackets.
-*/
-/*	@font-face {
-    	font-family: 'Font Name';
-    	src: url('../fonts/font-name.eot');
-    	src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('../fonts/font-name.woff') format('woff'),
-             url('../fonts/font-name.ttf') format('truetype'),
-             url('../fonts/font-name.svg#font-name') format('svg');
-    	font-weight: normal;
-    	font-style: normal;
-	}
-*/
 /* =Helpers
 ----------------------------------------------- */
 .center {
@@ -680,6 +663,32 @@ really slow down your CSS. Don't overdo it.
 *********************/
 /* .css-gradient(#dfdfdf,#f8f8f8); */
 /*********************
+COLUMNS
+*********************/
+.two-col {
+  -moz-column-width: 350px;
+  -moz-column-count: 0;
+  -moz-column-gap: 50px;
+  -moz-column-rule-color: #eeeeee;
+  -moz-column-rule-style: solid;
+  -moz-column-rule-width: 1px;
+  -webkit-column-width: 350px;
+  -webkit-column-count: 0;
+  -webkit-column-gap: 50px;
+  -webkit-column-rule-color: #eeeeee;
+  -webkit-column-rule-style: solid;
+  -webkit-column-rule-width: 1px;
+  column-width: 350px;
+  column-count: 0;
+  column-gap: 50px;
+  column-rule-color: #eeeeee;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+}
+.two-col p {
+  margin-top: 0;
+}
+/*********************
 BOX SHADOW
 *********************/
 /* .boxShadow(0,0,4px,0,#444); */
@@ -780,7 +789,7 @@ BUTTONS
 BASE (MOBILE) SIZE
 This are the mobile styles. It's what people see on their phones. If
 you set a great foundation, you won't need to add too many styles in
-the other stylesheets. Remember, keep it light: Speed is Important.
+the other stylesheets.  
 */
 /******************************************************************
 Site Name:
@@ -807,7 +816,8 @@ and will be used across all viewports.
 10. COMMENT STYLES
 11. COMMENT FORM STYLES
 12. SIDEBARS & ASIDES
-13. FOOTER STYLES
+13. IMAGES & MEDIA
+14. FOOTER STYLES
 
 ******************************************************************/
 /*********************
@@ -1014,11 +1024,12 @@ and more scalable.
   padding-left: 30px;
 }
 /* end .nav */
-/*********************
+/**************************
 08. POSTS & CONTENT STYLES
-*********************/
+**************************/
 #content {
   margin-top: 2.2em;
+  padding: 0 10px;
 }
 /* end .hentry */
 /* want to style individual post classes? Booya! */
@@ -1052,6 +1063,15 @@ and more scalable.
 }
 .entry-content img {
   margin: 0 0 1.5em 0;
+  max-width: 100%;
+  height: auto;
+}
+.entry-content img.size-auto,
+.entry-content img.size-full,
+.entry-content img.size-large,
+.entry-content img.size-medium,
+.entry-content .attachment img,
+.entry-content .widget-area img {
   max-width: 100%;
   height: auto;
 }
@@ -1354,10 +1374,10 @@ and more scalable.
 
 }
 /*********************
-13. FOOTER STYLES
+14. IMAGES & MEDIA
 *********************/
 /*********************
-13. FOOTER STYLES
+14. FOOTER STYLES
 *********************/
 .footer {
   clear: both;
@@ -1382,8 +1402,7 @@ and more scalable.
 /*
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
+larger than an iPhone but smaller than a tablet. 
 */
 @media only screen and (min-width: 481px) {
   /******************************************************************
@@ -1405,7 +1424,7 @@ tweeners.
   /*********************
   NAVIGATION STYLES
   *********************/
-  /* .menu is clearfixed inside mixins.scss */
+  /* .menu is grouped inside mixins.scss */
   .menu {
     /* end .menu ul */
   
@@ -1472,8 +1491,7 @@ tweeners.
 /*
 TABLET & SMALLER LAPTOPS
 This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
+in general anyone not viewing on a mobile device. 
 */
 @media only screen and (min-width: 768px) {
   /******************************************************************
@@ -1853,9 +1871,6 @@ This is for the larger monitors and possibly full screen viewers.
 }
 /*
 RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
-other displays with a 2x resolution. You can also create a media
-query for retina AND a certain size if you want. Go Nuts.
 */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /******************************************************************
@@ -1900,17 +1915,8 @@ query for retina AND a certain size if you want. Go Nuts.
   */
 }
 /*
-iPHONE 5 MEDIA QUERY
-Want to get fancy for no good reason? Knock yourself out.
-*/
-@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  
-}
-/*
 PRINT STYLESHEET
-Feel free to customize this. Remember to add things that won't make
-sense to print at the bottom. Things like nav, ads, and forms should
-be set to display none.
+
 */
 @media print {
   /******************************************************************
