@@ -37,15 +37,19 @@
 					</div>
 				</div>
 
-				<img class="size-large" src ="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_528b276e41166_1.JPG" />
-					
+				<div class="group col12 ">
+					<div class="col6 margin-left3">
+						
+						<img class="size-large" src ="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_528b276e41166_1.JPG" />
+					</div>
+				</div>
+
 				<div class="group col12 ">
 					<blockquote class="col4 margin-left4">"Going to string 'em," was the response.</blockquote>
 				</div>
 
-				<div class="group two-col">
-					
-					
+				<div class="col12 group two-col">
+				
 					<p>Hoo-Hoo, lying on his stomach and idly digging his toes in the sand,  cried out and investigated, first, his toe-nail, and next, the small  hole he had dug. The other two boys joined him, excavating the sand  rapidly with their hands till there lay three skeletons exposed. Two  were of adults, the third being that of a part-grown child. The old man  hudged along on the ground and peered at the find.</p>
 
 					<p>"Plague victims," he announced. "That's the way they died everywhere  in the last days. This must have been a family, running away from the  contagion and perishing here on the Cliff House beach. They&mdash;what are  you doing, Edwin?"</p>

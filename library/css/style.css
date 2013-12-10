@@ -551,6 +551,9 @@ TYPOGRAPHY
 *********************/
 /* =Helpers
 ----------------------------------------------- */
+.fill-grey {
+  background: #f3f3f3;
+}
 .center {
   text-align: center;
 }
@@ -1679,12 +1682,6 @@ in general anyone not viewing on a mobile device.
   }
   .keyline-left {
     border-left: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  .first {
-    margin-left: 0;
-  }
-  .last {
-    float: right;
   }
   /******************************************************************
   Site Name:
