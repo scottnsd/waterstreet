@@ -4,7 +4,7 @@
 
 	<div id="inner-content" class="wrap group">
 
-		<div id="main" class="col8 group" role="main">
+		<div id="main" class="col-2-3 group" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 

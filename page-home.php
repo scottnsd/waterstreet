@@ -62,7 +62,7 @@
 				</div>
 
 				<div class="row">
-					<blockquote class="center pad4y">Hoo-Hoo, lying on his stomach and idly digging his toes in the sand,  cried out and investigated, first, his toe-nail, and next, the small  hole he had dug. The other two boys joined him, excavating the sand  rapidly with their hands till there lay three skeletons exposed. Two  were of adults, the third being that of a part-grown child. The old man  hudged along on the ground and peered at the find.</blockquote>
+					<blockquote class="center pad4">Hoo-Hoo, lying on his stomach and idly digging his toes in the sand,  cried out and investigated, first, his toe-nail, and next, the small  hole he had dug. The other two boys joined him, excavating the sand  rapidly with their hands till there lay three skeletons exposed. Two  were of adults, the third being that of a part-grown child. The old man  hudged along on the ground and peered at the find.</blockquote>
 				</div>
 
 				<div class="col12 group two-col">

@@ -37,15 +37,19 @@ remember less is more.
 /*********************
 groupIN'
 *********************/
-.group {
+.group,
+.row {
   zoom: 1;
 }
 .group:before,
-.group:after {
+.row:before,
+.group:after,
+.row:after {
   content: "";
   display: table;
 }
-.group:after {
+.group:after,
+.row:after {
   clear: both;
 }
 /*********************
@@ -455,6 +459,15 @@ values are commented out on each line.
 }
 .col-1-8 {
   width: 12.5%;
+}
+.pad1 {
+  padding: 10px;
+}
+.pad2 {
+  padding: 20px;
+}
+.pad4 {
+  padding: 40px;
 }
 .pad1x {
   padding-left: 10px;
