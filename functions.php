@@ -92,6 +92,22 @@ You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
+
+
+function waterstreet_add_body_class( $classes )
+{
+    global $post;
+    if ( isset( $post ) ) {
+        $classes[] = $post->post_type . '-' . $post->post_name;
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'waterstreet_add_body_class' );
+
+
+
+
+
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
