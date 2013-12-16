@@ -64,6 +64,21 @@ add_action('wp_footer', 'waterstreet_show_template', 1);
 
 
 
+/**
+ * Use a dashicon for CPTs' admin menu icon
+ *
+ * @since 0.1
+ */
+
+function add_menu_icons_styles(){
+	echo '<style>#adminmenu .menu-icon-custom_type div.wp-menu-image:before { content: "\f333"; }</style>';
+ }
+
+add_action( 'admin_head', 'add_menu_icons_styles' );
+
+
+
+
 
 
 
