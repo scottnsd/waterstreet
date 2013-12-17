@@ -1402,6 +1402,9 @@ and more scalable.
 	view.
 	*/
 /* end .footer-links */
+.template-file {
+  display: none;
+}
 /*
 LARGER MOBILE DEVICES
 This is for devices like the Galaxy Note or something that's
@@ -1751,6 +1754,14 @@ in general anyone not viewing on a mobile device.
   
   }
   /* end .footer-links */
+  .template-file {
+    display: block;
+    background: #444;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: .75em;
+    padding: 5px 0;
+  }
 }
 /*
 DESKTOP

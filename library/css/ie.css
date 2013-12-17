@@ -650,6 +650,14 @@ mobile. Make sure to double check these!
 
 }
 /* end .footer-links */
+.template-file {
+  display: block;
+  background: #444;
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: .75em;
+  padding: 5px 0;
+}
 /******************************************************************
 Site Name: 
 Author: 

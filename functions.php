@@ -56,8 +56,9 @@ require_once( 'library/template-tags.php' );
 function waterstreet_show_template() {
 	if ( is_super_admin() ){	
 		global $template;
-		echo '<div class=template-file>Template file:</div>';
+		echo '<div class=template-file>Template file:';
 		print_r($template);
+		echo '</div>';
 	}
 }
 add_action('wp_footer', 'waterstreet_show_template', 1);
